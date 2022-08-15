@@ -27,6 +27,7 @@ systemctl enable systemd-resolved.service
 # Create and setup interfaces on startup
 systemctl enable systemd-networkd.service
 systemctl enable p4edge-setup.service
+systemctl enable t4p4s.service
 
 sed -i 's|#DAEMON_CONF.*$|DAEMON_CONF="/etc/hostapd/hostapd.conf"|' /etc/default/hostapd
 

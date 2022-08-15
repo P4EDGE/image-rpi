@@ -1,7 +1,6 @@
 [Unit]
 Description=Setup veth and bridge interfaces for packet processing
-Requires=systemd-networkd.target
-After=systemd-networkd.target
+Requires=systemd-networkd.service
 After=network.target
 
 [Service]
