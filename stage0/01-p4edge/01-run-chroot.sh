@@ -25,7 +25,7 @@ apt-fast install -o Dpkg::Options::="--force-overwrite" --allow-downgrades --fix
   p4edge-examples \
   p4edge-linux-image-5.15.33-v8+ \
   p4edge-linux-headers-5.15.33-v8+ \
-  lsod
+  lsof
 
 pip install more-itertools
 
