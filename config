@@ -3,7 +3,7 @@
 # Export files in stages may add suffixes to IMG_NAME.
 #
 # Default: unset
-IMG_NAME=p4edge
+IMG_NAME=p4pi
 
 # Instead of using traditional way of building the rootfs of every stage in single subdirectories
 # and copying over the previous one to the next one, qcow2 based virtual disks with backing images are used
@@ -91,7 +91,7 @@ LOCALE_DEFAULT="en_US.UTF-8"
 # Setting the hostname to the specified value.
 #
 # Default: "raspberrypi"
-TARGET_HOSTNAME="p4edge"
+TARGET_HOSTNAME="p4pi"
 
 # Default keyboard keymap.
 #
