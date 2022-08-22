@@ -10,8 +10,8 @@ curl -fsSL https://download.opensuse.org/repositories/home:p4edge:/kernel/Raspbi
 #echo 'deb [signed-by=/usr/share/keyrings/p4edge-testing-archive-keyring.gpg] http://download.opensuse.org/repositories/home:/p4edge:/testing/Raspbian_11/ /' | tee /etc/apt/sources.list.d/p4edge-testing.list
 #curl -fsSL https://download.opensuse.org/repositories/home:p4edge:/testing/Raspbian_11/Release.key | gpg --dearmor > /usr/share/keyrings/p4edge-testing-archive-keyring.gpg
 
-echo 'deb [signed-by=/usr/share/keyrings/p4edge-testing-archive-keyring.gpg] http://download.opensuse.org/repositories/home:/IcePhoenix:/p4edge:/testing/Raspbian_11/ /' | tee /etc/apt/sources.list.d/p4edge-testing.list
-curl -fsSL https://download.opensuse.org/repositories/home:/IcePhoenix:/p4edge:/testing/Raspbian_11/Release.key | gpg --dearmor > /usr/share/keyrings/p4edge-testing-archive-keyring.gpg
+echo 'deb [signed-by=/usr/share/keyrings/p4edge-testing-archive-keyring.gpg] http://download.opensuse.org/repositories/home:/p4edge:/p4lang-testing/Raspbian_11/ /' | tee /etc/apt/sources.list.d/p4edge-p4lang-testing.list
+curl -fsSL https://download.opensuse.org/repositories/home:/p4edge:/p4lang-testing/Raspbian_11/Release.key | gpg --dearmor > /usr/share/keyrings/p4edge-p4lang-testing-archive-keyring.gpg
 
 apt-get update
 
