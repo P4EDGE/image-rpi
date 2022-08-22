@@ -21,17 +21,23 @@ apt-fast install -o Dpkg::Options::="--force-overwrite" --allow-downgrades --fix
   p4lang-pi \
   p4lang-p4c \
   p4lang-bmv2 \
-  p4edge-web \
+  p4edge-t4p4s \
   p4edge-examples \
+  p4edge-web \
   p4edge-linux-image-5.15.33-v8+ \
   p4edge-linux-headers-5.15.33-v8+ \
   lsof
 
-pip install more-itertools
+mv /root/t4p4s /root/t4p4s-old
 
-wget https://build.opensuse.org/package/binary/download/home:p4edge:testing/p4edge-t4p4s/Raspbian_11/aarch64/p4edge-t4p4s_0.1.4.0+20220819~ac7f01a-8.1_all.deb
+#upgrade t4p4s
+wget http://lakis.web.elte.hu/p4edge-t4p4s.deb
+dpkg -i p4edge-t4p4s.deb
 
-dpkg -i p4edge-t4p4s_0.1.4.0+20220819~ac7f01a-8.1_all.deb
+mv /root/t4p4s-old/examples /root/t4p4s
+rm -rf /root/t4p4s-old
+
+pip install more-itertools nnpy
 
 mv /boot/vmlinuz-5.15.33-v8+ /boot/kernel8.img
 
