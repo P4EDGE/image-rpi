@@ -39,6 +39,9 @@ rm -rf /root/t4p4s-old
 
 pip install more-itertools nnpy
 
+wget https://raw.githubusercontent.com/p4lang/behavioral-model/main/tools/p4dbg.py
+mv p4dbg.py /usr/lib/python3/dist-packages/
+
 mv /boot/vmlinuz-5.15.33-v8+ /boot/kernel8.img
 
 # Enable web UI
