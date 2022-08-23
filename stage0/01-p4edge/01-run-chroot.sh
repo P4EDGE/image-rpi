@@ -71,5 +71,5 @@ mkdir /root/bmv2/bin
 
 git clone --depth=1 -b bmv2 https://github.com/P4EDGE/examples.git /root/bmv2/examples
 
-mkdir /root/bmv2/examples/uploaded-switch
+mkdir /root/bmv2/examples/uploaded_switch
 
