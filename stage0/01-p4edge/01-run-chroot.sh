@@ -10,8 +10,12 @@ curl -fsSL https://download.opensuse.org/repositories/home:p4edge:/kernel/Raspbi
 #echo 'deb [signed-by=/usr/share/keyrings/p4edge-testing-archive-keyring.gpg] http://download.opensuse.org/repositories/home:/p4edge:/testing/Raspbian_11/ /' | tee /etc/apt/sources.list.d/p4edge-testing.list
 #curl -fsSL https://download.opensuse.org/repositories/home:p4edge:/testing/Raspbian_11/Release.key | gpg --dearmor > /usr/share/keyrings/p4edge-testing-archive-keyring.gpg
 
+#echo 'deb [signed-by=/usr/share/keyrings/p4edge-testing-archive-keyring.gpg] http://download.opensuse.org/repositories/home:/p4edge:/p4lang-testing/Raspbian_11/ /' | tee /etc/apt/sources.list.d/p4edge-p4lang-testing.list
+#curl -fsSL https://download.opensuse.org/repositories/home:/p4edge:/p4lang-testing/Raspbian_11/Release.key | gpg --dearmor > /usr/share/keyrings/p4edge-p4lang-testing-archive-keyring.gpg
+
 echo 'deb [signed-by=/usr/share/keyrings/p4edge-testing-archive-keyring.gpg] http://download.opensuse.org/repositories/home:/IcePhoenix:/p4edge:/testing/Raspbian_11/ /' | tee /etc/apt/sources.list.d/p4edge-testing.list
 curl -fsSL https://download.opensuse.org/repositories/home:/IcePhoenix:/p4edge:/testing/Raspbian_11/Release.key | gpg --dearmor > /usr/share/keyrings/p4edge-testing-archive-keyring.gpg
+
 
 apt-get update
 
@@ -21,17 +25,28 @@ apt-fast install -o Dpkg::Options::="--force-overwrite" --allow-downgrades --fix
   p4lang-pi \
   p4lang-p4c \
   p4lang-bmv2 \
-  p4edge-web \
+  p4edge-t4p4s \
   p4edge-examples \
+  p4edge-web \
   p4edge-linux-image-5.15.33-v8+ \
   p4edge-linux-headers-5.15.33-v8+ \
-  lsod
+  lsof
 
-pip install more-itertools
+mv /root/t4p4s /root/t4p4s-old
 
-wget https://build.opensuse.org/package/binary/download/home:p4edge:testing/p4edge-t4p4s/Raspbian_11/aarch64/p4edge-t4p4s_0.1.4.0+20220819~ac7f01a-8.1_all.deb
+#upgrade t4p4s
+wget http://lakis.web.elte.hu/p4edge-t4p4s.deb
+dpkg -i p4edge-t4p4s.deb
 
-dpkg -i p4edge-t4p4s_0.1.4.0+20220819~ac7f01a-8.1_all.deb
+mv /root/t4p4s-old/examples /root/t4p4s
+rm -rf /root/t4p4s-old
+
+cp /root/t4p4s/setup_eth_wlan_bridge.sh /root/
+
+pip install more-itertools nnpy
+
+wget https://raw.githubusercontent.com/p4lang/behavioral-model/main/tools/p4dbg.py
+mv p4dbg.py /usr/lib/python3/dist-packages/
 
 mv /boot/vmlinuz-5.15.33-v8+ /boot/kernel8.img
 
@@ -65,5 +80,5 @@ mkdir /root/bmv2/bin
 
 git clone --depth=1 -b bmv2 https://github.com/P4EDGE/examples.git /root/bmv2/examples
 
-mkdir /root/bmv2/examples/uploaded-switch
+mkdir /root/bmv2/examples/uploaded_switch
 
